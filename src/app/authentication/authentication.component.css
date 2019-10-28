@@ -12,3 +12,8 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.divider {
+  /* margin-top: 1vw; */
+  /* margin-bottom: 1vw; */
+}

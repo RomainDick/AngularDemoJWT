@@ -11,7 +11,8 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { HomeComponent } from './home';
 import { AppMaterialModule } from './shared/app-material.module';;
 import { HeaderComponent } from './header/header.component'
-
+;
+import { AuthenticationComponent } from './authentication/authentication.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -26,7 +27,8 @@ import { HeaderComponent } from './header/header.component'
         HomeComponent,
         LoginComponent,
         RegisterComponent ,
-        HeaderComponent   ],
+        HeaderComponent ,
+        AuthenticationComponent  ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

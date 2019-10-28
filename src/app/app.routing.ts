@@ -1,12 +1,14 @@
-﻿import { Routes, RouterModule } from '@angular/router';
-
-import { HomeComponent } from './home';
+﻿import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationComponent } from './authentication/authentication.component';
 import { AuthGuard } from './authentication/guard/auth.guard';
-import { LoginComponent } from './authentication/login';
+import { HomeComponent } from './home';
+
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'login', component: LoginComponent },
+    { path: 'authentication', component: AuthenticationComponent },
+    // { path: 'login', component: LoginComponent },
+    // { path: 'register', component: RegisterComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

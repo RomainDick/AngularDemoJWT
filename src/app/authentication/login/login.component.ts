@@ -7,12 +7,11 @@ import { AuthenticationService } from '../services';
 @Component({
     selector: 'app-login',
     templateUrl: 'login.component.html',
-    styleUrls: ['./login.component.scss']
+    styleUrls: ['../authentication.component.css']
 })
 
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
-    loading = false;
     submitted = false;
     returnUrl: string;
     error = '';
@@ -35,9 +34,6 @@ export class LoginComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     // convenience getter for easy access to form fields
@@ -51,16 +47,14 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    this.router.navigate(["/"]);
                 },
                 error => {
                     this.error = error;
-                    this.loading = false;
                 });
     }
 }

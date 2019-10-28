@@ -1,0 +1,25 @@
+<mat-card class="card">
+
+    <app-login *ngIf="isLogin; else isRegister"></app-login>
+    <ng-template #isRegister>
+        <app-register></app-register>
+    </ng-template>
+    
+    <mat-divider class="divider"></mat-divider>
+
+    <mat-card-actions>
+
+        <div class="login-button">
+
+            <div class="flex-row-center">
+
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="signIn">
+                    <mat-button-toggle value="signIn" (change)="isLogin = true">Sign in</mat-button-toggle>
+                    <mat-button-toggle value="signUp" (change)="isLogin = false">Sign up</mat-button-toggle>
+                </mat-button-toggle-group>
+
+            </div>
+        </div>
+    </mat-card-actions>
+
+</mat-card>
