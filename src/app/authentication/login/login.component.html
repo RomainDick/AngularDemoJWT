@@ -1,0 +1,64 @@
+﻿<mat-card class="card">
+    <mat-card-header class="flex-row-center">
+        <mat-card-title class="card-title">Login now</mat-card-title>
+        <mat-card-subtitle>Please login to continue using our app</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <table class="full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <input matInput placeholder="Login" formControlName="username" [(ngModel)]="username"
+                                name="username" required>
+                        </mat-form-field>
+                        <div *ngIf="submitted && f.username.errors">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <input matInput placeholder="Password" formControlName="password" [(ngModel)]="password"
+                                type="password" name="password" required>
+                        </mat-form-field>
+                        <div *ngIf="submitted && f.password.errors">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="flex-row-center">
+
+            <button mat-raised-button (click)="onSubmit()" [disabled]="loading" color="primary">
+                Sign in
+            </button>
+        </div>
+
+        <!-- <br>
+        <mat-divider></mat-divider>
+
+        <br>
+
+        <div class="flex-row-center">
+            
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="sign in">Sign in</mat-button-toggle>
+                <mat-button-toggle value="sign up">Sign up</mat-button-toggle>
+            </mat-button-toggle-group>
+            
+        </div> -->
+        <!-- <div class="flex-row-center">
+            <button mat-raised-button color="primary">
+                Sign in
+            </button>
+            <button mat-raised-button color="warn">
+                Sign up
+            </button>
+        </div> -->
+    </mat-card-actions>
+</mat-card>

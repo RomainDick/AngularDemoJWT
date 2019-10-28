@@ -1,0 +1,14 @@
+<!-- Header -->
+<header>
+    <mat-toolbar color="primary" class="header">
+        <span>Application</span>
+    
+        <!-- This fills the remaining space of the current row -->
+        <span class="example-fill-remaining-space"></span>
+    
+        <div *ngIf="currentUser">
+            <button mat-button routerLink="/">Home</button>
+            <button mat-button (click)="logout()">Logout</button>
+        </div>
+    </mat-toolbar>
+</header>
