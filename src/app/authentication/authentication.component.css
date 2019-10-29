@@ -1,6 +1,8 @@
 .card {
-  min-width: 40vh;
-  min-height: 25vh;
+  min-width: 10vw;
+  min-height: 15vh;
+  max-width: 25vw;
+  max-width: 30vh;
 }
 
 .card-title {
