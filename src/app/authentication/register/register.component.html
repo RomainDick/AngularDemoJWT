@@ -4,61 +4,38 @@
 </mat-card-header>
 <mat-card-content>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <input matInput placeholder="Enter login" formControlName="username" [(ngModel)]="username"
-                            name="username" required>
-                    </mat-form-field>
-                    <div *ngIf="submitted && f.username.errors">
-                        <div *ngIf="f.username.errors.required">Username is <strong>required</strong></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <input matInput placeholder="Enter your email" formControlName="mail" [(ngModel)]="mail"
-                            name="mail" required>
-                    </mat-form-field>
-                    <div *ngIf="submitted && f.mail.errors">
-                        <div *ngIf="f.mail.errors.required">Mail is <strong>required</strong></div>
-                        <div *ngIf="f.mail.errors.email">Mail is invalid</div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <input matInput placeholder="Enter the password" formControlName="password"
-                            [(ngModel)]="password" type="password" name="password" required>
-                    </mat-form-field>
-                    <div *ngIf="submitted && f.password.errors">
-                        <div *ngIf="f.password.errors.required">Password is <strong>required</strong></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <input matInput placeholder="Re enter the password" formControlName="repeatPassword"
-                            [(ngModel)]="repeatPassword" type="password" name="password" required>
-                    </mat-form-field>
-                    <div *ngIf="submitted && f.repeatPassword.errors">
-                        <div *ngIf="f.repeatPassword.errors.required">Password is <strong>required</strong></div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Login</mat-label>
+            <input matInput placeholder="Enter login" formControlName="username" name="username" required>
+            <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Mail</mat-label>
+            <input matInput placeholder="Enter your email" formControlName="mail" name="mail" required>
+            <mat-error *ngIf="hasError('mail', 'required')">Mail is required</mat-error>
+            <mat-error *ngIf="hasError('mail', 'email')">Mail is invalid</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter the password" formControlName="password" type="password" name="password"
+                required>
+            <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Repeat Password</mat-label>
+            <input matInput placeholder="Re-enter the password" formControlName="repeatPassword" type="password"
+                name="repeatPassword" required>
+            <mat-error *ngIf="hasError('repeatPassword', 'required')">Password is required</mat-error>
+        </mat-form-field>
+
     </form>
 </mat-card-content>
 <mat-card-actions>
     <div class="flex-row-center">
-
-        <button mat-raised-button (click)="onSubmit()" color="primary">
-            Sign up
-        </button>
-
+        <button mat-raised-button (click)="onSubmit()" color="primary">Sign up</button>
     </div>
 </mat-card-actions>
