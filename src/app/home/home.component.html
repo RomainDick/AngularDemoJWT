@@ -2,7 +2,7 @@
     <div card-content>
         <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
         <ul *ngIf="users">
-            <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+            <li *ngFor="let user of users">You're logged as {{user.firstName}} {{user.lastName}}</li>
         </ul>
     </div>
 </div>
